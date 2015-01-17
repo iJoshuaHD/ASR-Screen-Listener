@@ -1,5 +1,4 @@
 # NOTE: THIS IS NOT COMPATIBLE WITH WINDOWS OS, ONLY LINUX.
-=========================================================
 
 ## REQUIREMENTS:
 
