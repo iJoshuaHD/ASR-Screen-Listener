@@ -44,7 +44,7 @@ class Listener{
 						if($algo_time > $restart_allocation){
 							if(!isset($this->temp[$port]['frozen_times'])) $this->temp[$port]['frozen_times'] = 0;
 							else $this->temp[$port]['frozen_times'] = $this->temp[$port]['frozen_times'] + 1;
-							$this->logger("Server was frozen for " . abs($algo_time - $restart_allocation) . " minutes.");
+							$this->logger("Server was frozen for " . abs($algo_time - $restart_allocation) . " minute.");
 							shell_exec("screen -p 0 -S $screen_name -X stuff 'save-all\n'");
 							sleep(1);
 							shell_exec("kill -Kill " . $req['processid']);
