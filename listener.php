@@ -46,17 +46,17 @@ class Listener{
 							else $this->temp[$port]['frozen_times'] = $this->temp[$port]['frozen_times'] + 1;
 							$this->logger("Server was frozen for " . abs($algo_time - $restart_allocation) . " minutes.");
 							shell_exec("screen -p 0 -S $screen_name -X stuff 'save-all\n'");
-							sleep(3);
+							sleep(1);
 							shell_exec("kill -Kill " . $req['processid']);
 							$this->logger("Server forcedly Restarted.");
 							$db->close();
 							return $this->loop($port, $screen_name, $host, $user, $password, $database, $mysql_port, $goingToLogPerMinute);
 						}else{
-							if($algo_time > 1 and $algo_time < 3){
-								$this->logger("It seems the server is frozen.");
-								$this->logger("Lets give it another more minute.");
-							}else{
-								if($goingToLogPerMinute){
+							if($goingToLogPerMinute){
+								if($algo_time > 1 and $algo_time < 3){
+									$this->logger("It seems the server is frozen.");
+									$this->logger("Lets give it another more minute.");
+								}else{
 									$this->logger("Server is running fine.");
 								}
 							}
